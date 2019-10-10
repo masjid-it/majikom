@@ -1,0 +1,13 @@
+const name = 'table_name';
+
+exports.up = function(knex) {
+  return knex.schema.createTable(name, (table)=>{
+    table.increments();
+    // your schema here
+    table.timestamps(true, true);
+  });
+};
+
+exports.down = function(knex) {
+  return knex.schema.dropTable(name);
+};
