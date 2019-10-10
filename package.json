@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon .",
-    "migration": "node migrations"
+    "migration": "knex migrate:up"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "knex": "^0.19.5",
-    "mysql2": "^1.7.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
