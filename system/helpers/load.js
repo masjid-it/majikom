@@ -2,13 +2,17 @@ const path = require('path');
 const fs = require('fs');
 
 
-const requireAndRun = (dirname) => {
+const filesIn = (dirname, {
+  exclude,
+}) => {
   let files = fs
     .readdirSync(dirname)
-    .filter(f => path.extname(f) === '.js' && f !== __filename);
-  console.log(files);
+    .filter(f => {
+      return path.extname(f) === '.js' && f !== path.basename(exclude)
+    });
+  return files;
 };
 
 module.exports = {
-  requireAndRun,
+  filesIn,
 }
