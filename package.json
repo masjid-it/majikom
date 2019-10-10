@@ -32,7 +32,7 @@
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "knex": "^0.19.5",
-    "express-edge": "^2.0.1"
+    "edge.js": "^1.1.4"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
