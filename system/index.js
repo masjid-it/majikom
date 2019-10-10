@@ -1,6 +1,8 @@
 const load = require('./helpers/load');
 
-load.requireAndRun(__dirname);
-
-
-
+load.filesIn(__dirname, {
+  exclude: __filename,
+})
+.forEach(file => {
+  require(`./${file}`).run();
+});
