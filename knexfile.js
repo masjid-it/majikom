@@ -14,7 +14,12 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './database/migrations',
+      tableName: 'knex_migrations',
+      stub: './database/migration.stub',
+    },
+    seeds: {
+      directory: './database/seed'
     }
   },
 
