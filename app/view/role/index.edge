@@ -1,0 +1,26 @@
+@layout('layout/main')
+
+@section('content')
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          @each(role in roles)
+            <tr>
+              <td>{{role.id}}</td>
+              <td>{{role.title}}</td>
+            </tr>
+          @endeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+@endsection
