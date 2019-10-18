@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon .",
-    "migration": "knex migrate:up"
+    "migration": "knex migrate:up",
+    "seed": "knex seed:run"
   },
   "repository": {
     "type": "git",
