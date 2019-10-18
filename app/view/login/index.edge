@@ -32,22 +32,22 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Masjid Kampus An-Nur</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" action="/login" method="POST">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukkan email...">
+                      <input type="email" name="email" class="form-control form-control-user" placeholder="Masukkan email...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan kata sandi...">
+                      <input type="password" name="password" class="form-control form-control-user" placeholder="Masukkan kata sandi...">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <input type="checkbox" class="custom-control-input">
                         <label class="custom-control-label" for="customCheck">Ingat saya</label>
                       </div>
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
                       Masuk
-                    </a>
+                    </button>
                   </form>
                   <hr>
                   <div class="text-center">
