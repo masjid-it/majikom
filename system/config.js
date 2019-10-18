@@ -14,15 +14,17 @@ const run = (app) => {
     }
   });
 
-  app.use(session({
-    name: `${process.env.app.name}.sid`,
-    secret: process.env.app.key,
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-      secure: process.env.NODE_ENV === 'production'
-    },
-  }));
+  if (!!app) {
+    app.use(session({
+      name: `${process.env.app.name}.sid`,
+      secret: process.env.app.key,
+      resave: true,
+      saveUninitialized: true,
+      cookie: {
+        secure: process.env.NODE_ENV === 'production'
+      },
+    }));
+  }
 };
 
 module.exports = {
