@@ -1,13 +1,9 @@
 const router = require('express').Router();
 const role = require('../repository/role');
+const auth = require('../middleware/auth');
 
-router.get('/', async (req, res) => {
-  const isLogin = true;
-  if (isLogin) {
-    res.render('role', {roles: await role.all()});
-  } else{
-    res.render('login');
-  }
+router.get('/', auth, async (req, res) => {
+  res.render('role', {roles: await role.all()});
 });
 
 module.exports = router;
