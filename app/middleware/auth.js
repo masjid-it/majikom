@@ -1,4 +1,7 @@
 module.exports = (req, res, next) => {
-  req.islogin = true;
-  next();
+  if (!!req.session.user) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
 };
