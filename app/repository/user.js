@@ -2,7 +2,14 @@ const crypto = require('crypto');
 const db = require('../../system/database');
 
 const all = async () => {
-  return await db.select().from('users').innerJoin('roles', 'users.role_id', 'roles.id');
+  let users = await db.select().from('users');
+  users = users.map(async(user) => {
+    const role = await db.select().from('roles').where({ id: user.role_id });
+    user.role = role[0];
+    return user;
+  });
+
+  return await Promise.all(users);
 }
 
 const create = async (user) => {

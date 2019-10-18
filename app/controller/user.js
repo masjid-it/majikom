@@ -4,7 +4,8 @@ const role = require('../repository/role');
 const auth = require('../middleware/auth');
 
 router.get('/users', auth, async (req, res) => {
-  res.render('user', { users: await user.all() });
+  const users = await user.all();
+  res.render('user', { users });
 });
 
 router.get('/users/add', auth, async (req, res) => {
