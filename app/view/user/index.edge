@@ -1,0 +1,33 @@
+@layout('layout/main')
+
+@section('content')
+<div class="my-3">
+  <a href="/users/add" class="btn btn-primary btn-sm shadow-m">Tambah</a>
+</div>
+
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @each(user in users)
+            <tr>
+              <td>{{user.id}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.role}}</td>
+            </tr>
+          @endeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+@endsection
