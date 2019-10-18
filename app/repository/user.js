@@ -14,6 +14,11 @@ const all = async () => {
   return await Promise.all(users);
 }
 
+const count = async () => {
+  const res = await db.from('users').count({ len: 'id' }).first();
+  return res.len;
+};
+
 const create = async (user) => {
   user.password = crypto.hash(user.password);
   return await db.insert(user).into('users');
@@ -42,4 +47,5 @@ module.exports = {
   all,
   create,
   auth,
+  count,
 };
