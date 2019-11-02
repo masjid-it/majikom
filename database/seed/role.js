@@ -7,6 +7,7 @@ exports.seed = function(knex) {
       return knex('roles').insert([
         {title: 'admin'},
         {title: 'takmir'},
+        {title: 'jamaah'},
       ]);
     });
 };
