@@ -1,6 +1,10 @@
 const crypto = require('./crypto');
 const db = require('../../system/database');
 
+/**
+ * User - All
+ * Menyediakan data semua user
+ */
 const all = async () => {
   let users = await db.select().from('users');
   users = users.map(async(user) => {
@@ -14,16 +18,28 @@ const all = async () => {
   return await Promise.all(users);
 }
 
+/**
+ * User - Count
+ * Menyediakan data banyaknya user
+ */
 const count = async () => {
   const res = await db.from('users').count({ len: 'id' }).first();
   return res.len;
 };
 
+/**
+ * User - Create
+ * Menyimpan data user
+ */
 const create = async (user) => {
   user.password = crypto.hash(user.password);
   return await db.insert(user).into('users');
 };
 
+/**
+ * User - Auth
+ * Memeriksa kesesuaian data login dengan database
+ */
 const auth = async (email, password) => {
   let user = await db.select().from('users').where({ email }).first();
 
