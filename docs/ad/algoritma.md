@@ -1,5 +1,6 @@
 File ini berisi algoritma "yang nantinya bisa diubah".
 
+# Manajemen Infaq
 Output: 
 1. Informasi keuangan masjid
 
