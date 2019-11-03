@@ -1,0 +1,33 @@
+@layout('layout/main')
+
+@section('content')
+<div class="my-3">
+  <a href="/users" class="btn btn-danger btn-sm shadow-m">Kembali</a>
+</div>
+
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <h3 class="card-title">Ubah User</h3>
+    <form action="/users/add" method="post">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Masukkan email" value="{{user.email}}">
+      </div>
+      <div class="form-group">
+        <label>Kata Sandi</label>
+        <input type="password" name="password" class="form-control" placeholder="Masukkan kata sandi">
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <select name="role" class="form-control">
+          <option disabled selected>Pilih role...</option>
+          @each(role in roles)
+            <option {{user.role_id === 1 ? 'disabled':''}} {{user.role_id === role.id ? 'selected':''}} value="{{role.id}}">{{role.title}}</option>
+          @endeach
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+    </form>
+  </div>
+</div>
+@endsection
