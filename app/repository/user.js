@@ -19,6 +19,16 @@ const all = async () => {
 }
 
 /**
+ * User - Find
+ * Menyediakan data user berdasarkan id
+ */
+const find = async (id) => {
+  if (!id || isNaN(id)) return undefined;
+  const res = await db.from('users').where({ id }).first();
+  return res;
+};
+
+/**
  * User - Count
  * Menyediakan data banyaknya user
  */
@@ -61,6 +71,7 @@ const auth = async (email, password) => {
 
 module.exports = {
   all,
+  find,
   create,
   auth,
   count,
