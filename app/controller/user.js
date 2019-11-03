@@ -34,4 +34,20 @@ router.post('/users/add', auth, async (req, res) => {
   res.redirect('/users');
 });
 
+/**
+ * User - Ubah
+ * Menampilkan halaman ubah user
+ */
+router.get('/users/edit/:id', auth, async (req, res) => {
+  const id = parseInt(req.params.id);
+  const userById = await user.find(id);
+
+  if (!userById) return res.redirect('/users');
+
+  res.render('user/edit', {
+    user: userById,
+    roles: await role.all(),
+  });
+});
+
 module.exports = router;
